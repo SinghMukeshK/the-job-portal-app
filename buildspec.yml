@@ -6,7 +6,7 @@ phases:
       - cd android
       - ls
       - chmod +x gradlew
-      - ./gradlew assembleDebug
+      - ./gradlew assembleDebug --stacktrace
 artifacts:
   files:
     -app/build/outputs/apk/the-job-portal-app.apk
