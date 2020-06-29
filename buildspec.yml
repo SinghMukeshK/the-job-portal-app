@@ -10,7 +10,7 @@ phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
-      - apt-get -y install wget
+      # - apt-get -y install wget
       - wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
       - tar zxvf android-sdk_r24.4.1-linux.tgz
       - mkdir -p android-sdk-linux/licenses
