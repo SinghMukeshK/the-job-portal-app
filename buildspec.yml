@@ -5,6 +5,7 @@ phases:
     commands:
       - cd android
       - ls
+      - chmod +x gradlew
       - ./gradlew assembleDebug
 artifacts:
   files:
