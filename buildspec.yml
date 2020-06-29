@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - cd android
+      # - cd android
       - ls
       - chmod +x gradlew
       - ./gradlew assembleDebug --stacktrace
