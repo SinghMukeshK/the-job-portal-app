@@ -3,7 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - ./android/gradlew assembleDebug
+      - cd android
+      - gradlew assembleDebug
 artifacts:
   files:
     -app/build/outputs/apk/the-job-portal-app.apk
