@@ -18,13 +18,13 @@ phases:
       - mkdir $ANDROID_HOME/licenses
       - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > $ANDROID_HOME/licenses/android-sdk-license
       # - /okpt/android-sdk-linux/tools/android update sdk --no-ui
+      - chmod +x gradlew
+      - ./gradlew assembleDebug --stacktrace
   build:
     commands:
       # - root/./gradlew --debug --stacktrace build
       # - root/./gradlew assemble
       # - $ANDROID_HOME/tools/bin/sdkmanager "build-tools;27.0.3" "platforms;android-27"
-      - chmod +x gradlew
-      - ./gradlew assembleDebug --stacktrace
 
   post_build:
     commands:
