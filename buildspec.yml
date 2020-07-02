@@ -12,6 +12,8 @@ phases:
       - echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
   build:
     commands:
+      - cd android
+      - chmod +x gradlew
       - ./gradlew build
 artifacts:
   files:
