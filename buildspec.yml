@@ -103,4 +103,4 @@ phases:
       - ./gradlew assembleDebug --stacktrace
 artifacts:
   files:
-    - app-debug.apk
+    - app/app-debug.apk
