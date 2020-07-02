@@ -89,7 +89,6 @@ phases:
       # - echo $ANDROID_SDK_ROOT
       # - export PATH=$PATH:$ANDROID_HOME/tools
       # - export PATH=$PATH:$ANDROID_HOME/platform-tools
-      - apt install default-jdk
       - wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
       - unzip sdk-tools-linux-4333796.zip -d android-sdk
       - sudo mv android-sdk /opt/
