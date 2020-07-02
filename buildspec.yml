@@ -96,7 +96,7 @@ phases:
       - echo "export ANDROID_SDK_ROOT=/opt/android-sdk" >> ~/.bashrc
       - echo "export PATH=$PATH:$ANDROID_SDK_ROOT/tools" >> ~/.bashrc
       - cd android/app
-      - keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 "CN=Mark Smith, OU=Java, O=Oracle, L=Cupertino, S=California, C=US"
+      - keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Mark Smith, OU=Java, O=Oracle, L=Cupertino, S=California, C=US"
       - cd ..
       - ls 
       - chmod +x gradlew
