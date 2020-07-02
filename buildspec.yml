@@ -5,7 +5,7 @@ phases:
         nodejs: 10
     commands:
       - echo Nothing to do in the install phase...
-      - npm install
+      - npm install 
   pre_build:
     commands:
       - android-accept-licenses.sh "android update sdk --no-ui --all --filter \"android-$ANDROID_VERSION,tools,platform-tools,build-tools-$ANDROID_TOOLS_VERSION,extra-android-m2repository\""
