@@ -1,24 +1,24 @@
-version: 0.2
-phases:
-  install:
-    runtime-versions:
-        nodejs: 10
-    commands:
-      - echo Nothing to do in the install phase...
-      - npm install 
-  pre_build:
-    commands:
-      - android-accept-licenses.sh "android update sdk --no-ui --all --use-sdk-wrapper --filter \"android-$ANDROID_VERSION,tools,platform-tools,build-tools-$ANDROID_TOOLS_VERSION,extra-android-m2repository\""
-      - echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
-  build:
-    commands:
-      - cd android
-      - chmod +x gradlew
-      - ./gradlew build
-artifacts:
-  files:
-    - app/build/outputs/apk/the-job-portal-debug.apk
-  discard-paths: yes
+# version: 0.2
+# phases:
+#   install:
+#     runtime-versions:
+#         nodejs: 10
+#     commands:
+#       - echo Nothing to do in the install phase...
+#       - npm install 
+#   pre_build:
+#     commands:
+#       - android-accept-licenses.sh "android update sdk --no-ui --all --use-sdk-wrapper --filter \"android-$ANDROID_VERSION,tools,platform-tools,build-tools-$ANDROID_TOOLS_VERSION,extra-android-m2repository\""
+#       - echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+#   build:
+#     commands:
+#       - cd android
+#       - chmod +x gradlew
+#       - ./gradlew build
+# artifacts:
+#   files:
+#     - app/build/outputs/apk/the-job-portal-debug.apk
+#   discard-paths: yes
 
 
 
@@ -59,26 +59,26 @@ artifacts:
 # artifacts:
 #   files:
 #     -app/build/outputs/apk/the-job-portal-app.apk
-# # version: 0.2
 
-# # phases:
-# #   install:
-# #     runtime-versions:
-# #         nodejs: 10
-# #     commands:
-# #       - npm install
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        nodejs: 10
+    commands:
+      - npm install
       
-# #   build:
-# #     commands:
-# #       - cd android
-# #       - ls
-# #       - export ANDROID_HOME=$HOME/Android/Sdk
-# #       - echo $ANDROID_SDK_ROOT
-# #       - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-# #       - export PATH=$PATH:$ANDROID_HOME/tools
-# #       - export PATH=$PATH:$ANDROID_HOME/platform-tools
-# #       - chmod +x gradlew
-# #       - ./gradlew assembleDebug --stacktrace
-# # artifacts:
-# #   files:
-# #     -app/build/outputs/apk/the-job-portal-app.apk
+  build:
+    commands:
+      - cd android
+      - ls
+      - export ANDROID_HOME=$HOME/Android/Sdk
+      - echo $ANDROID_SDK_ROOT
+      - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+      - export PATH=$PATH:$ANDROID_HOME/tools
+      - export PATH=$PATH:$ANDROID_HOME/platform-tools
+      - chmod +x gradlew
+      - ./gradlew assembleDebug --stacktrace
+artifacts:
+  files:
+    -app/build/outputs/apk/the-job-portal-app.apk
