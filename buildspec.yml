@@ -91,7 +91,7 @@ phases:
       # - export PATH=$PATH:$ANDROID_HOME/platform-tools
       - wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
       - unzip sdk-tools-linux-4333796.zip -d android-sdk
-      - sudo mv android-sdk /opt/
+      - mv android-sdk /opt/
       - export ANDROID_SDK_ROOT=/opt/android-sdk
       - echo "export ANDROID_SDK_ROOT=/opt/android-sdk" >> ~/.bashrc
       - echo "export PATH=$PATH:$ANDROID_SDK_ROOT/tools" >> ~/.bashrc
