@@ -70,13 +70,13 @@ phases:
       
   build:
     commands:
-      - cd android
       - ls
       - export ANDROID_HOME=$HOME/Android/Sdk
       - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
       - echo $ANDROID_SDK_ROOT
       - export PATH=$PATH:$ANDROID_HOME/tools
       - export PATH=$PATH:$ANDROID_HOME/platform-tools
+      - cd android
       - chmod +x gradlew
       - ./gradlew assembleDebug --stacktrace
 artifacts:
