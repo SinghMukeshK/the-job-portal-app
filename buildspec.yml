@@ -76,7 +76,7 @@ phases:
       - ls
       - cd ..
       - ls
-      - cd usr
+      - cd usr/lib
       - ls
       
 #   build:
