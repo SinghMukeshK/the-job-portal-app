@@ -95,7 +95,10 @@ phases:
       - export ANDROID_SDK_ROOT=/opt/android-sdk
       - echo "export ANDROID_SDK_ROOT=/opt/android-sdk" >> ~/.bashrc
       - echo "export PATH=$PATH:$ANDROID_SDK_ROOT/tools" >> ~/.bashrc
-      - cd android
+      - cd android/app
+      - keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+      - cd ..
+      - ls
       - chmod +x gradlew
       - ./gradlew assembleDebug --stacktrace
 # artifacts:
