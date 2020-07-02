@@ -65,31 +65,33 @@ phases:
   install:
     runtime-versions:
         nodejs: 10
+        android: 29
+        java: corretto8
     commands:
-      # - npm install
-      - ls
-      - cd ..
-      - ls
-      - cd ..
-      - ls
-      - cd ..
-      - ls
-      - cd ..
-      - ls
-      - cd usr/lib
-      - ls
+      - npm install
+      # - ls
+      # - cd ..
+      # - ls
+      # - cd ..
+      # - ls
+      # - cd ..
+      # - ls
+      # - cd ..
+      # - ls
+      # - cd usr/lib
+      # - ls
       
-#   build:
-#     commands:
-#       - ls
-#       - export ANDROID_HOME=$HOME/Android/Sdk
-#       - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-#       - echo $ANDROID_SDK_ROOT
-#       - export PATH=$PATH:$ANDROID_HOME/tools
-#       - export PATH=$PATH:$ANDROID_HOME/platform-tools
-#       - cd android
-#       - chmod +x gradlew
-#       - ./gradlew assembleDebug --stacktrace
-# artifacts:
-#   files:
-#     -app/build/outputs/apk/the-job-portal-app.apk
+  build:
+    commands:
+      - ls
+      - export ANDROID_HOME=$HOME/Android/Sdk
+      - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+      - echo $ANDROID_SDK_ROOT
+      - export PATH=$PATH:$ANDROID_HOME/tools
+      - export PATH=$PATH:$ANDROID_HOME/platform-tools
+      - cd android
+      - chmod +x gradlew
+      - ./gradlew assembleDebug --stacktrace
+artifacts:
+  files:
+    -app/build/outputs/apk/the-job-portal-app.apk
