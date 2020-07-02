@@ -73,8 +73,8 @@ phases:
       - cd android
       - ls
       - export ANDROID_HOME=$HOME/Android/Sdk
-      - echo $ANDROID_SDK_ROOT
       - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+      - echo $ANDROID_SDK_ROOT
       - export PATH=$PATH:$ANDROID_HOME/tools
       - export PATH=$PATH:$ANDROID_HOME/platform-tools
       - chmod +x gradlew
