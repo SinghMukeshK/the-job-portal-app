@@ -1,5 +1,4 @@
-version: 0.2
-
+version: 0.1
 phases:
   install:
     runtime-versions:
@@ -9,32 +8,18 @@ phases:
       - npm install
   pre_build:
     commands:
-      - echo Pre Build started on `date`
-      - wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
-      - tar -xvf android-sdk_r24.4.1-linux.tgz
-      - mv android-sdk-linux /opt/
-      - export ANDROID_HOME=/opt/android-sdk-linux
-      - export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-      - export ANDROID_SWT=$ANDROID_HOME/tools/lib/arm
-      - mkdir $ANDROID_HOME/licenses
-      - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > $ANDROID_HOME/licenses/android-sdk-license
-      - /opt/android-sdk-linux/tools/android update sdk --no-ui
-      - ls
-      - cd android
-      - chmod +x gradlew
-      - ./gradlew assembleDebug --stacktrace
+      - android-accept-licenses.sh "android update sdk --no-ui --all --filter \"android-$ANDROID_VERSION,tools,platform-tools,build-tools-$ANDROID_TOOLS_VERSION,extra-android-m2repository\""
+      - echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
   build:
     commands:
-      # - root/./gradlew --debug --stacktrace build
-      # - root/./gradlew assemble
-      # - $ANDROID_HOME/tools/bin/sdkmanager "build-tools;27.0.3" "platforms;android-27"
-
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - ./gradlew build
 artifacts:
   files:
-    -app/build/outputs/apk/the-job-portal-app.apk
+    - app/build/outputs/apk/the-job-portal-debug.apk
+  discard-paths: yes
+
+
+
 # version: 0.2
 
 # phases:
@@ -42,19 +27,56 @@ artifacts:
 #     runtime-versions:
 #         nodejs: 10
 #     commands:
+#       - echo Nothing to do in the install phase...
 #       - npm install
-      
-#   build:
+#   pre_build:
 #     commands:
-#       - cd android
+#       - echo Pre Build started on `date`
+#       - wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+#       - tar -xvf android-sdk_r24.4.1-linux.tgz
+#       - mv android-sdk-linux /opt/
+#       - export ANDROID_HOME=/opt/android-sdk-linux
+#       - export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+#       - export ANDROID_SWT=$ANDROID_HOME/tools/lib/arm
+#       - mkdir $ANDROID_HOME/licenses
+#       - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > $ANDROID_HOME/licenses/android-sdk-license
+#       - /opt/android-sdk-linux/tools/android update sdk --no-ui
 #       - ls
-#       - export ANDROID_HOME=$HOME/Android/Sdk
-#       - echo $ANDROID_SDK_ROOT
-#       - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-#       - export PATH=$PATH:$ANDROID_HOME/tools
-#       - export PATH=$PATH:$ANDROID_HOME/platform-tools
+#       - cd android
 #       - chmod +x gradlew
 #       - ./gradlew assembleDebug --stacktrace
+#   build:
+#     commands:
+#       # - root/./gradlew --debug --stacktrace build
+#       # - root/./gradlew assemble
+#       # - $ANDROID_HOME/tools/bin/sdkmanager "build-tools;27.0.3" "platforms;android-27"
+
+#   post_build:
+#     commands:
+#       - echo Build completed on `date`
 # artifacts:
 #   files:
 #     -app/build/outputs/apk/the-job-portal-app.apk
+# # version: 0.2
+
+# # phases:
+# #   install:
+# #     runtime-versions:
+# #         nodejs: 10
+# #     commands:
+# #       - npm install
+      
+# #   build:
+# #     commands:
+# #       - cd android
+# #       - ls
+# #       - export ANDROID_HOME=$HOME/Android/Sdk
+# #       - echo $ANDROID_SDK_ROOT
+# #       - export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+# #       - export PATH=$PATH:$ANDROID_HOME/tools
+# #       - export PATH=$PATH:$ANDROID_HOME/platform-tools
+# #       - chmod +x gradlew
+# #       - ./gradlew assembleDebug --stacktrace
+# # artifacts:
+# #   files:
+# #     -app/build/outputs/apk/the-job-portal-app.apk
