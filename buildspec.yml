@@ -100,7 +100,7 @@ phases:
       - cd ..
       - ls 
       - chmod +x gradlew
-      - ./gradlew assembleDebug --stacktrace
+      - ./gradlew assembleDebug
 artifacts:
   files:
     - app/build/outputs/app-debug.apk
