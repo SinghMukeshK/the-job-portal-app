@@ -76,6 +76,8 @@ phases:
       - ls
       - cd ..
       - ls
+      - cd usr
+      - ls
       
 #   build:
 #     commands:
