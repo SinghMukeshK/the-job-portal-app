@@ -101,7 +101,6 @@ phases:
       - ls 
       - chmod +x gradlew
       - ./gradlew assembleDebug 
-      - ls
 artifacts:
   files:
-    - the-job-portal-app/app-debug.apk
+    - app-debug.apk
