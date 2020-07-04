@@ -100,7 +100,8 @@ phases:
       - cd ..
       - ls 
       - chmod +x gradlew
-      - ./gradlew assembleDebug 
+      - ./gradlew assembleDebug  >> $CODEBUILD_SRC_DIR/app-debug.apk
+      - ls
 artifacts:
   files:
-    - app-debug.apk
+    - the-job-portal-app/app-debug.apk
